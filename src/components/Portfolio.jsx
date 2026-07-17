@@ -4,19 +4,19 @@ import { motion } from "framer-motion";
 
 const projectData = [
   {
-    image: "/images/ai-hand-os.png",
+    image: `${import.meta.env.BASE_URL}images/ai-hand-os.png`,
     title: "AI-HAND-OS",
     tags: ["React", "FastAPI", "MediaPipe Hands", "Vite"],
     link: "https://khansara26sk-sketch.github.io/ai-hand-os/",
   },
   {
-    image: "/images/learnpath-ai.png",
+    image: `${import.meta.env.BASE_URL}images/learnpath-ai.png`,
     title: "LEARNPATH-AI",
     tags: ["React", "Python", "Firebase Authentication", "FastAPI", "GROK API"],
     link: "https://learn-path-md1538phc-khansara26sk-sketchs-projects.vercel.app/",
   },
   {
-    image: "/images/khetdrishti.png",
+    image: `${import.meta.env.BASE_URL}images/khetdrishti.png`,
     title: "KhetDrishti",
     tags: ["HTML", "CSS", "JavaScript", "FastAPI", "Weather API"],
     link: "https://khansara26sk-sketch.github.io/Khet_Drishti/",
