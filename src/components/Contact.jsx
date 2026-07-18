@@ -112,6 +112,17 @@ const Contact = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") || "";
+    const email = formData.get("email") || "";
+    const message = formData.get("message") || "";
+    const subject = `Portfolio enquiry from ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=khansara26sk@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.open(gmailUrl, "_blank", "noopener,noreferrer");
+    return;
+
     emailjs
       .sendForm(
         "service_ezep6zg",
@@ -131,7 +142,7 @@ const Contact = () => {
   return (
     <div
       ref={containerRef}
-      id="contactme"
+      id="contact"
       className="relative w-full h-screen bg-[#020202] overflow-hidden flex items-center justify-center font-mono select-none"
     >
       {/* 1. Loading Module (Ultra-high Z) */}
@@ -205,13 +216,13 @@ const Contact = () => {
 
       {/* 5. Central Contact UI (Z-50) */}
       <AnimatePresence>
-        {loaded && currentFrameIdx >= 120 && (
+        {(
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 30 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="relative z-50 w-full max-w-4xl px-6 pointer-events-auto"
+            className="relative z-50 w-full max-w-4xl px-6 pt-24 pb-8 pointer-events-auto"
           >
             <div className="text-center mb-8">
               <h2 className="text-6xl md:text-9xl font-black text-white uppercase tracking-tighter leading-none">

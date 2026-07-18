@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX } from 'react-icons/fi';
 
 const navLinks = [
   { name: 'Home', href: '#' },
   { name: 'About', href: '#about' },
   { name: 'Services', href: '#services' },
-  { name: 'Portfolio', href: '#portfolio' },
   { name: 'Contact', href: '#contact' }
 ];
 
@@ -13,7 +12,6 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('Home');
-  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,15 +67,7 @@ export default function Navbar() {
             </ul>
 
             {/* Action Group */}
-            <div className="flex items-center space-x-6 border-l border-white/10 pl-10 h-6">
-                {/* Theme Toggle */}
-                <button 
-                  onClick={() => setIsDarkMode(!isDarkMode)}
-                  className="text-white/40 hover:text-white hover:scale-110 active:scale-95 transition-all duration-300 group"
-                >
-                  {isDarkMode ? <FiSun size={14} className="group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]" /> : <FiMoon size={14} />}
-                </button>
-
+            <div className="flex items-center h-6">
                 {/* Hire Me Button */}
                 <button className="px-5 py-1.5 border border-white/20 text-white font-mono text-[9px] uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500 rounded-sm">
                     Hire Me
